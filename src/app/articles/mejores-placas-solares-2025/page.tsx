@@ -1,4 +1,4 @@
-import { SunIcon, StarIcon, CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { SunIcon, CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 

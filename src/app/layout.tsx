@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void;
   }
 }
 
