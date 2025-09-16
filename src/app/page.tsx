@@ -14,6 +14,7 @@ export default function Home() {
             </div>
             <nav className="hidden md:flex space-x-8">
               <Link href="/articles" className="text-gray-500 hover:text-gray-900">Artículos</Link>
+              <Link href="/foros" className="text-gray-500 hover:text-gray-900">Foros</Link>
               <Link href="/about" className="text-gray-500 hover:text-gray-900">Acerca</Link>
               <Link href="/consultation" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 Consulta Gratis
@@ -189,6 +190,7 @@ export default function Home() {
               <h4 className="text-lg font-semibold mb-4">Recursos</h4>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/articles" className="hover:text-white">Artículos</Link></li>
+                <li><Link href="/foros" className="hover:text-white">Foros</Link></li>
                 <li><Link href="/calculadora" className="hover:text-white">Calculadora Solar</Link></li>
                 <li><Link href="/instaladores" className="hover:text-white">Instaladores</Link></li>
               </ul>
