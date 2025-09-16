@@ -1,5 +1,6 @@
 import { SunIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 const articles = [
   {
@@ -262,6 +263,12 @@ export default function ArticlesPage() {
           </div>
         </div>
       </footer>
+
+      {/* Phone Call Popup - shows after reading for 60 seconds */}
+      <PhoneCallPopup trigger="automatic" delay={60000} />
+      
+      {/* Floating Call Button */}
+      <FloatingCallButton />
     </div>
   )
 }

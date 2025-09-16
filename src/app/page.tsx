@@ -1,5 +1,7 @@
-import { SunIcon, BoltIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
+import { SunIcon, BoltIcon, ShieldCheckIcon, ChatBubbleLeftIcon, UserIcon } from '@heroicons/react/24/outline'
+import { ChatBubbleLeftIcon as ChatBubbleLeftSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 export default function Home() {
   return (
@@ -91,6 +93,114 @@ export default function Home() {
                 Crédito fiscal federal del 30% + incentivos locales pueden cubrir hasta 50% del costo.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Forums Preview */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              💬 Comunidad Solar
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Únete a las conversaciones de nuestra comunidad. Comparte experiencias, 
+              haz preguntas y aprende de otros que ya tienen energía solar.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Recent Post 1 */}
+            <div className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="bg-white rounded-full p-2 shadow-sm">
+                  <UserIcon className="h-4 w-4 text-gray-600" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-medium text-gray-900">Carlos M.</span>
+                    <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                      ❓ Preguntas
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500">Hace 1 día</p>
+                </div>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                ¿Vale la pena instalar paneles solares en Bayamón?
+              </h3>
+              <p className="text-gray-700 text-sm mb-3">
+                Estoy considerando instalar paneles solares en mi casa en Bayamón. 
+                Mi factura eléctrica promedio es $300 al mes...
+              </p>
+              <div className="flex items-center gap-4 text-xs text-gray-500">
+                <div className="flex items-center gap-1">
+                  <ChatBubbleLeftSolidIcon className="h-3 w-3" />
+                  3 respuestas
+                </div>
+              </div>
+            </div>
+
+            {/* Recent Post 2 */}
+            <div className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="bg-white rounded-full p-2 shadow-sm">
+                  <UserIcon className="h-4 w-4 text-gray-600" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-medium text-gray-900">Ana L.</span>
+                    <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                      ⭐ Experiencias
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500">Hace 2 días</p>
+                </div>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">
+                6 meses con paneles solares - Mi experiencia real
+              </h3>
+              <p className="text-gray-700 text-sm mb-3">
+                Quería compartir mi experiencia después de 6 meses con mi sistema solar. 
+                Mi factura bajó de $280 a $45...
+              </p>
+              <div className="flex items-center gap-4 text-xs text-gray-500">
+                <div className="flex items-center gap-1">
+                  <ChatBubbleLeftSolidIcon className="h-3 w-3" />
+                  7 respuestas
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Community Stats */}
+          <div className="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl p-6 mb-8">
+            <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-2xl font-bold text-blue-600 mb-1">150+</div>
+                <div className="text-sm text-gray-600">Miembros activos</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-green-600 mb-1">45</div>
+                <div className="text-sm text-gray-600">Discusiones esta semana</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-yellow-600 mb-1">200+</div>
+                <div className="text-sm text-gray-600">Experiencias compartidas</div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <Link href="/foros" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              <ChatBubbleLeftIcon className="h-5 w-5" />
+              Únete a la Conversación
+            </Link>
+            <p className="text-sm text-gray-500 mt-2">
+              Sin registro necesario • Comparte anónimamente
+            </p>
           </div>
         </div>
       </section>
@@ -223,6 +333,12 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Phone Call Popup - shows automatically after 30 seconds */}
+      <PhoneCallPopup trigger="automatic" delay={30000} />
+      
+      {/* Floating Call Button */}
+      <FloatingCallButton />
     </div>
   )
 }

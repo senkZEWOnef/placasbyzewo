@@ -1,6 +1,7 @@
 import { SunIcon, CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 const solarPanels = [
   {
@@ -486,6 +487,12 @@ export default function BestSolarPanelsArticle() {
           </div>
         </div>
       </footer>
+
+      {/* Phone Call Popup - shows after reading for 90 seconds */}
+      <PhoneCallPopup trigger="automatic" delay={90000} />
+      
+      {/* Floating Call Button */}
+      <FloatingCallButton />
     </div>
   )
 }

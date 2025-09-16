@@ -1,6 +1,7 @@
 import { SunIcon, BoltIcon, ShieldCheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { AmazonButton, HomeDepotButton } from '@/components/AffiliateLink'
+import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 const batteryComparison = {
   tesla: {
@@ -539,6 +540,12 @@ export default function TeslaVsGeneracArticle() {
           </div>
         </div>
       </footer>
+
+      {/* Phone Call Popup - shows after reading for 90 seconds */}
+      <PhoneCallPopup trigger="automatic" delay={90000} />
+      
+      {/* Floating Call Button */}
+      <FloatingCallButton />
     </div>
   )
 }

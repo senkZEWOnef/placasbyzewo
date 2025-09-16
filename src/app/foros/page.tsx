@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { SunIcon, ChatBubbleLeftIcon, UserIcon, ClockIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { ChatBubbleLeftIcon as ChatBubbleLeftSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
+import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 interface Post {
   id: string
@@ -393,6 +394,12 @@ export default function ForosPage() {
           </div>
         </div>
       </div>
+
+      {/* Phone Call Popup - shows after 45 seconds on forums */}
+      <PhoneCallPopup trigger="automatic" delay={45000} />
+      
+      {/* Floating Call Button */}
+      <FloatingCallButton />
     </div>
   )
 }

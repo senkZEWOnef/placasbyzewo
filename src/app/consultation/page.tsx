@@ -3,12 +3,13 @@
 import { useState } from 'react'
 import { SunIcon, CheckIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 export default function ConsultationPage() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
+    email: '',
     municipality: '',
     homeType: '',
     electricBill: '',
@@ -156,201 +157,195 @@ export default function ConsultationPage() {
 
             {/* Right Column - Form */}
             <div className="mt-12 lg:mt-0 lg:col-span-7">
-              <div className="bg-white shadow rounded-lg">
-                <div className="px-4 py-5 sm:p-6">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 mb-4">
-                    Solicita tu Consulta Gratuita
+              <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-600 to-yellow-500 px-6 py-8">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    🚀 Comienza Tu Proyecto Solar
                   </h3>
-                  
+                  <p className="text-blue-100">
+                    Solo necesitamos tu nombre y teléfono para conectarte con un experto
+                  </p>
+                </div>
+                
+                <div className="px-6 py-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                          Nombre completo *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          id="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        />
-                      </div>
+                    {/* Essential Fields */}
+                    <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-100">
+                      <h4 className="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+                        ⭐ Información esencial
+                      </h4>
+                      
+                      <div className="space-y-4">
+                        <div>
+                          <label htmlFor="name" className="block text-sm font-semibold text-blue-900 mb-2">
+                            Tu nombre *
+                          </label>
+                          <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            required
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Ej: Carlos Martínez"
+                            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-0 transition-colors text-lg"
+                          />
+                        </div>
 
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                          Email *
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          id="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                          Teléfono *
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          id="phone"
-                          required
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="municipality" className="block text-sm font-medium text-gray-700">
-                          Municipio *
-                        </label>
-                        <select
-                          name="municipality"
-                          id="municipality"
-                          required
-                          value={formData.municipality}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        >
-                          <option value="">Selecciona tu municipio</option>
-                          <option value="San Juan">San Juan</option>
-                          <option value="Bayamón">Bayamón</option>
-                          <option value="Carolina">Carolina</option>
-                          <option value="Ponce">Ponce</option>
-                          <option value="Caguas">Caguas</option>
-                          <option value="Guaynabo">Guaynabo</option>
-                          <option value="Arecibo">Arecibo</option>
-                          <option value="Toa Baja">Toa Baja</option>
-                          <option value="Mayagüez">Mayagüez</option>
-                          <option value="Otro">Otro</option>
-                        </select>
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-semibold text-blue-900 mb-2">
+                            Teléfono *
+                          </label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            required
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="(787) 123-4567"
+                            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-0 transition-colors text-lg"
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="homeType" className="block text-sm font-medium text-gray-700">
-                          Tipo de propiedad
-                        </label>
-                        <select
-                          name="homeType"
-                          id="homeType"
-                          value={formData.homeType}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        >
-                          <option value="">Selecciona</option>
-                          <option value="Casa propia">Casa propia</option>
-                          <option value="Apartamento propio">Apartamento propio</option>
-                          <option value="Casa alquilada">Casa alquilada</option>
-                          <option value="Negocio">Negocio</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label htmlFor="electricBill" className="block text-sm font-medium text-gray-700">
-                          Factura eléctrica mensual
-                        </label>
-                        <select
-                          name="electricBill"
-                          id="electricBill"
-                          value={formData.electricBill}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        >
-                          <option value="">Selecciona rango</option>
-                          <option value="$0-100">$0 - $100</option>
-                          <option value="$100-200">$100 - $200</option>
-                          <option value="$200-300">$200 - $300</option>
-                          <option value="$300-500">$300 - $500</option>
-                          <option value="$500+">$500+</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="timeframe" className="block text-sm font-medium text-gray-700">
-                          ¿Cuándo te gustaría instalar?
-                        </label>
-                        <select
-                          name="timeframe"
-                          id="timeframe"
-                          value={formData.timeframe}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        >
-                          <option value="">Selecciona</option>
-                          <option value="Inmediatamente">Inmediatamente</option>
-                          <option value="1-3 meses">1-3 meses</option>
-                          <option value="3-6 meses">3-6 meses</option>
-                          <option value="6+ meses">6+ meses</option>
-                          <option value="Solo investigando">Solo investigando</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label htmlFor="hasRoof" className="block text-sm font-medium text-gray-700">
-                          ¿Tu techo necesita reparaciones?
-                        </label>
-                        <select
-                          name="hasRoof"
-                          id="hasRoof"
-                          value={formData.hasRoof}
-                          onChange={handleChange}
-                          className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                        >
-                          <option value="">Selecciona</option>
-                          <option value="No, está en buenas condiciones">No, está en buenas condiciones</option>
-                          <option value="Necesita reparaciones menores">Necesita reparaciones menores</option>
-                          <option value="Necesita reparaciones mayores">Necesita reparaciones mayores</option>
-                          <option value="No estoy seguro">No estoy seguro</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                        Comentarios adicionales
-                      </label>
-                      <textarea
-                        name="message"
-                        id="message"
-                        rows={3}
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="¿Tienes alguna pregunta específica o consideración especial?"
-                        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                      />
-                    </div>
-
-                    <div className="bg-gray-50 px-4 py-3 rounded-md">
-                      <p className="text-xs text-gray-600">
-                        Al enviar este formulario, aceptas que nuestro socio instalador certificado 
-                        se ponga en contacto contigo para programar tu consulta gratuita. 
-                        Ver <Link href="/privacy" className="text-blue-600 hover:text-blue-500">política de privacidad</Link>.
+                    {/* Optional Fields */}
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        📋 Información adicional (opcional)
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-4">
+                        Esto nos ayuda a preparar mejor tu consulta, pero no es obligatorio
                       </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="tu@email.com"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0 transition-colors"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="municipality" className="block text-sm font-medium text-gray-700 mb-1">
+                            Municipio
+                          </label>
+                          <select
+                            name="municipality"
+                            id="municipality"
+                            value={formData.municipality}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0 transition-colors"
+                          >
+                            <option value="">Selecciona tu municipio</option>
+                            <option value="San Juan">San Juan</option>
+                            <option value="Bayamón">Bayamón</option>
+                            <option value="Carolina">Carolina</option>
+                            <option value="Ponce">Ponce</option>
+                            <option value="Caguas">Caguas</option>
+                            <option value="Guaynabo">Guaynabo</option>
+                            <option value="Arecibo">Arecibo</option>
+                            <option value="Toa Baja">Toa Baja</option>
+                            <option value="Mayagüez">Mayagüez</option>
+                            <option value="Otro">Otro</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label htmlFor="electricBill" className="block text-sm font-medium text-gray-700 mb-1">
+                            Factura eléctrica mensual
+                          </label>
+                          <select
+                            name="electricBill"
+                            id="electricBill"
+                            value={formData.electricBill}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0 transition-colors"
+                          >
+                            <option value="">Selecciona rango</option>
+                            <option value="$0-100">$0 - $100</option>
+                            <option value="$100-200">$100 - $200</option>
+                            <option value="$200-300">$200 - $300</option>
+                            <option value="$300-500">$300 - $500</option>
+                            <option value="$500+">$500+</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label htmlFor="timeframe" className="block text-sm font-medium text-gray-700 mb-1">
+                            ¿Cuándo instalar?
+                          </label>
+                          <select
+                            name="timeframe"
+                            id="timeframe"
+                            value={formData.timeframe}
+                            onChange={handleChange}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0 transition-colors"
+                          >
+                            <option value="">Selecciona</option>
+                            <option value="Inmediatamente">Inmediatamente</option>
+                            <option value="1-3 meses">1-3 meses</option>
+                            <option value="3-6 meses">3-6 meses</option>
+                            <option value="6+ meses">6+ meses</option>
+                            <option value="Solo investigando">Solo investigando</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="mt-4">
+                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                          Comentarios o preguntas
+                        </label>
+                        <textarea
+                          name="message"
+                          id="message"
+                          rows={3}
+                          value={formData.message}
+                          onChange={handleChange}
+                          placeholder="¿Tienes alguna pregunta específica sobre tu proyecto solar?"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0 transition-colors"
+                        />
+                      </div>
                     </div>
 
-                    <div>
-                      <button
-                        type="submit"
-                        className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        📅 Solicitar Consulta Gratuita
-                      </button>
+                    {/* Privacy Notice */}
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-start gap-3">
+                        <div className="bg-green-100 rounded-full p-1 flex-shrink-0 mt-0.5">
+                          <CheckIcon className="h-4 w-4 text-green-600" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-700">
+                            <strong>100% Seguro y Confidencial.</strong> Al enviar este formulario, 
+                            nuestro instalador certificado se pondrá en contacto contigo dentro de 24 horas.
+                          </p>
+                          <p className="text-xs text-gray-600 mt-1">
+                            Ver <Link href="/privacy" className="text-blue-600 hover:text-blue-500 underline">política de privacidad</Link>.
+                          </p>
+                        </div>
+                      </div>
                     </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
+                    >
+                      🚀 Solicitar Mi Consulta Gratuita
+                    </button>
+
+                    <p className="text-center text-sm text-gray-500">
+                      ⚡ Respuesta en menos de 24 horas • Sin costo • Sin compromiso
+                    </p>
                   </form>
                 </div>
               </div>
@@ -358,6 +353,9 @@ export default function ConsultationPage() {
           </div>
         </div>
       </div>
+
+      {/* Floating Call Button - no auto popup on consultation page since they're already filling a form */}
+      <FloatingCallButton />
     </div>
   )
 }

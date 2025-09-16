@@ -1,5 +1,6 @@
 import { SunIcon, CheckIcon, UserGroupIcon, HeartIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
 
 export default function AboutPage() {
   return (
@@ -271,6 +272,12 @@ export default function AboutPage() {
           </div>
         </div>
       </footer>
+
+      {/* Phone Call Popup - shows after 40 seconds on about page */}
+      <PhoneCallPopup trigger="automatic" delay={40000} />
+      
+      {/* Floating Call Button */}
+      <FloatingCallButton />
     </div>
   )
 }
