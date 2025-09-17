@@ -1,4 +1,4 @@
-import { SunIcon, BoltIcon, ShieldCheckIcon, ChatBubbleLeftIcon, UserIcon } from '@heroicons/react/24/outline'
+import { SunIcon, BoltIcon, ShieldCheckIcon, ChatBubbleLeftIcon, UserIcon, Cog6ToothIcon } from '@heroicons/react/24/outline'
 import { ChatBubbleLeftIcon as ChatBubbleLeftSolidIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import PhoneCallPopup, { FloatingCallButton } from '@/components/PhoneCallPopup'
@@ -14,12 +14,15 @@ export default function Home() {
               <SunIcon className="h-8 w-8 text-yellow-500 mr-2" />
               <span className="text-2xl font-bold text-gray-900">PlacasPR</span>
             </div>
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-8 items-center">
               <Link href="/articles" className="text-gray-500 hover:text-gray-900">Artículos</Link>
               <Link href="/foros" className="text-gray-500 hover:text-gray-900">Foros</Link>
               <Link href="/about" className="text-gray-500 hover:text-gray-900">Acerca</Link>
               <Link href="/consultation" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 Consulta Gratis
+              </Link>
+              <Link href="/admin" className="text-gray-400 hover:text-gray-600 p-2">
+                <Cog6ToothIcon className="h-5 w-5" title="Admin" />
               </Link>
             </nav>
           </div>
